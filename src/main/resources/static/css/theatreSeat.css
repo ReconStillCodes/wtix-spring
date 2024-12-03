@@ -1,0 +1,227 @@
+.heading {
+  margin-top: 15vh;
+}
+
+.subheading {
+  font-size: 1.3em;
+  color: #a8a8a8;
+  margin-bottom: 1em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.subheading-extra {
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: #a8a8a8;
+  font-size: 1em;
+  padding: 0.3em 0 0.3em 0;
+  margin-bottom: 2.5em;
+}
+
+.subheading-extra span {
+  width: 45%;
+  /* background-color: red; */
+  text-align: center;
+  color: white;
+}
+
+.legend {
+  color: #a8a8a8;
+  font-style: italic;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.legend span {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.color {
+  width: 15px;
+  height: 15px;
+}
+
+.color1 {
+  background-color: #e3242b;
+}
+
+.color2 {
+  background-color: #0d92f4;
+}
+
+.color3 {
+  background-color: #15b392;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-rows: repeat(12, 50px);
+  gap: 10px;
+}
+
+.seats-row {
+  display: grid;
+  grid-template-columns: repeat(20, 50px);
+  gap: 10px;
+}
+
+.seat {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seat-label {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.seat-input {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.seat-input:checked + .seat-label {
+  background-color: #15b392;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled:checked + .seat-label {
+  cursor: not-allowed;
+}
+
+.screen {
+  /* box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4); */
+  padding: 0.4em;
+  /* background-color: #272b35; */
+  background-color: bisque;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+
+  width: 50vw;
+  padding-top: 2em;
+  margin-bottom: 5em;
+}
+
+form {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.seats-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 2em;
+  color: #a8a8a8;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.seats-payment {
+  position: relative;
+  min-width: 300px;
+  color: white;
+}
+
+.dd-btn {
+  padding: 0.2em 1em 0.2em 1em;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dd-menu {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  margin-top: 5px;
+  background-color: #272b35;
+  opacity: 0.2;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s ease;
+}
+
+.dd-menu.open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dd-menu .item {
+  width: 100%;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dd-menu .item:hover {
+  background-color: #303642;
+}
+
+.dd-menu .active {
+  font-weight: 600;
+}
+
+.seats-price {
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.seats-btn {
+  background-color: #e3242b;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 1.7em;
+  font-weight: 600;
+  padding: 0.2em 2em 0.2em 2em;
+  border-radius: 50px;
+  margin-bottom: 5em;
+  margin-top: 1em;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+}

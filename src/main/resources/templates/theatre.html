@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theatre</title>
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/theatreSeat.css" />
+    <style></style>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav th:insert="navbar :: navbar">
+    </nav>
+
+    <h1 class="heading" th:text="${screening.movie.title}"></h1>
+    <h3 class="subheading" th:text="${screening.cinema.location}"></h3>
+    <div class="subheading-extra">
+      <span
+        th:text="${#temporals.format(screening.startTime, 'dd MMM')}"
+      ></span>
+      |
+      <span th:text="${#temporals.format(screening.startTime, 'HH:mm')}"></span>
+    </div>
+
+    <div class="legend">
+      <span>
+        <div class="color color1"></div>
+        Unavailable
+      </span>
+
+      <span>
+        <div class="color color2"></div>
+        Available
+      </span>
+
+      <span>
+        <div class="color color3"></div>
+        Selected
+      </span>
+    </div>
+
+    <form action="/theatre/buy" method="POST">
+      <div class="seats-grid">
+        <!--Seat grid container-->
+
+        <div class="seats-row" th:each=" row : ${seats}">
+          <!--For each row-->
+
+          <div class="seat" th:each=" seat : ${row.value}">
+            <!--No Seat-->
+            <span th:if="${seat.value == null }"></span>
+            <!-- Seat -->
+            <input
+              th:type="checkbox"
+              class="seat-input"
+              th:if="${seat.value != null }"
+              th:id="${seat.value.number}"
+              th:value="${seat.value.id}"
+              th:data-price="${screeningType.price}"
+              th:attr="disabled=${seat.value.status == 'unavailable' ? 'disabled' : null}"
+              onchange="updatePrice(event)"
+              name="selectedSeats"
+            />
+
+            <label
+              th:if="${seat.value != null}"
+              class="seat-label"
+              th:for="${seat.value.number}"
+              th:text="${seat.value.number}"
+              th:classappend="${seat.value.status == 'unavailable' ? ' color1' : 'color2'}"
+            ></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen  =-============================ -->
+      <div class="screen">Screen</div>
+
+      <div class="seats-info">
+        <div class="seats-price" id="seats-price">Rp 0.00</div>
+        |
+        <div class="seats-payment">
+          <div class="dd-btn">
+            <span id="selected-item">Payment Method</span>
+            <span
+              ><i class="fa-solid fa-caret-down" aria-hidden="true"></i
+            ></span>
+          </div>
+
+          <div class="dd-menu">
+            <div class="item active" data-value="1">BCA</div>
+            <div class="item" data-value="2">GoPay</div>
+            <div class="item" data-value="3">OVO</div>
+          </div>
+
+          <input type="hidden" id="payment-method" name="paymentMethod" />
+        </div>
+      </div>
+
+      <button type="submit" class="seats-btn btn">Buy Tickets</button>
+    </form>
+
+    <script src="../js/payment.js"></script>
+    <script src="../js/paymentHandler.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${movie.title}"></title>
+    <link rel="stylesheet" href="/css/master.css" />
+    <link rel="stylesheet" href="/css/buyMovie.css" />
+  </head>
+  <body>
+    <nav th:insert="navbar :: navbar">
+    </nav>
+
+    <div class="jumbotron-container" th:style="'background-image: url(' + ${movie.img} + ')'">
+      <div class="jumbotron">
+        <div class="jumbotron-img">
+          <img th:src="${movie.img}" />
+        </div>
+
+        <div class="jumbotron-desc">
+          <h1 th:text="${movie.title}"></h1>
+          <h6 th:text="${movie.genre} + ' | ' + ${duration}"></h6>
+          <p th:text="${movie.synopsis}"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="schedule-container">
+      <h1>Schedule</h1>
+
+      <div class="schedule-container-btn">
+        <a th:href="@{@{/movie/movieId={movieIdx}/dateIdx={dateIdx}(movieIdx=${movie.id}, dateIdx=${stat.index})}}"
+           class="btn"
+           th:each="date, stat : ${dates}"
+           th:text="${date}"
+           th:style="${stat.index == currDateIdx} ? 'color: #e3242b; border: 2px solid #e3242b;' : ''"></a>
+      </div>
+
+      <div class="schedule-card" th:each="cinema, cinemaIdx : ${cinemas}">
+        <h1 th:text="${cinema.name}"></h1>
+        <h6 th:text="${cinema.location}"></h6>
+
+        <span th:each="sts: ${screenTypes[cinema.id]}">
+          <div class="schedule-card-theatre" th:each="st : ${sts}">
+
+            <div class="schedule-card-theatre-desc" >
+              <span class="schedule-card-theatre-desc-name" th:text="${st.name}"></span>
+              <span class="schedule-card-theatre-desc-price" th:text="'Rp.' +  ${st.price}"></span>
+            </div>
+
+            <div class="schedule-card-theatre-container-btn">
+              <a th:href="@{/theatre/screeningId={screeningId}(screeningId=${screening.id})}"
+                 class="btn"
+                 th:each="screening : ${screenings[cinema.id][st.id]}"
+                 th:text="${#temporals.format(screening.startTime, 'HH:mm')}"
+                 th:id="${cinema.id} + '-' + ${st.id}"
+              >12:00</a>
+            </div>
+
+          </div>
+        </span>
+
+
+      </div>
+  </body>
+</html>

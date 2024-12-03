@@ -1,0 +1,142 @@
+.jumbotron-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  color: white;
+  font-size: 2em;
+
+  background-image: url("../asset/home-background.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
+  width: 100vw;
+  gap: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.jumbotron h1 {
+  max-width: 700px;
+  text-align: center;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron a {
+  font-size: 0.7em;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  background-color: #e3242b;
+  padding: 0.2em 3em 0.2em 3em;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.4);
+}
+
+.carausel-container {
+  margin: 0em 0 0em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.carausel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  gap: 2em;
+}
+
+.carausel-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e3242b;
+  font-size: 3em;
+  color: white;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+.carausel-images {
+  width: 70vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* background-color: greenyellow; */
+  height: 70vh;
+  overflow-x: hidden;
+}
+
+.carausel-poster {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  position: absolute;
+  transition: opacity 0.2s ease-out;
+  transition: transform 0.5s ease-in-out;
+
+  gap: 1em;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 400;
+
+  /* overflow-y: hidden; */
+}
+
+.poster {
+  height: 90%;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.4);
+}
+
+#d1 {
+  transform: translateX(-40vh);
+}
+
+#d2 {
+  transform: translateX(0vh);
+}
+
+#d3 {
+  transform: translateX(40vh);
+}
+
+#d4 {
+  transform: translateX(80vh);
+}
+
+#d5 {
+  transform: translateX(120vh);
+}
+
+#d6 {
+  transform: translateX(160vh);
+}
+
+.carausel-container h1 {
+  text-align: left;
+  width: 70vw;
+}

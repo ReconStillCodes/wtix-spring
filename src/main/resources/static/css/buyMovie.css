@@ -1,0 +1,186 @@
+.jumbotron-container {
+  max-height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  backdrop-filter: blur(10px);
+  min-height: 70vh;
+  width: 100vw;
+  gap: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  padding-top: 20vh;
+}
+
+.jumbotron-img {
+  width: 320px;
+  height: 100%;
+  position: relative;
+}
+
+.jumbotron-img img {
+  top: 0;
+  width: 320px;
+  height: 500px;
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+}
+
+@media (max-width: 900px) {
+  .jumbotron-img {
+    display: none; /* Hides the element */
+  }
+}
+
+.jumbotron-desc {
+  width: 50%;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 100%;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron-desc h1 {
+  font-size: 3.2em;
+}
+
+.jumbotron-desc h6 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.jumbotron p {
+  margin-top: 1.2em;
+  font-size: 1.3em;
+}
+
+.schedule-container {
+  width: 70vw;
+  min-width: 500px;
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5em;
+  gap: 1em;
+}
+
+.schedule-container h1 {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-container-btn {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.2em;
+}
+
+.schedule-container-btn a {
+  height: 100%;
+  border: 2px solid white;
+  box-sizing: border-box;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em 0 1em;
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.schedule-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+  padding: 1em;
+  background-color: #272b35;
+  border-radius: 10px;
+}
+
+.schedule-card h1 {
+  font-size: 1.5em;
+  font-weight: 500;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-card h6 {
+  font-size: 0.9em;
+  font-weight: 400;
+  font-style: italic;
+  color: #a8a8a8;
+  margin-bottom: 0.8em;
+}
+
+.schedule-card-theatre {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-card-theatre-desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 0.5em;
+}
+
+.schedule-card-theatre-desc-name {
+  font-size: 1.2em;
+}
+
+.schedule-card-theatre-desc-price {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #a8a8a8;
+  font-weight: 400;
+}
+
+.schedule-card-theatre-container-btn {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.2em;
+}
+
+.schedule-card-theatre-container-btn a {
+  height: 100%;
+  border: 2px solid white;
+  box-sizing: border-box;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em 0 1em;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+}

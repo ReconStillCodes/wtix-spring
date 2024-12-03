@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <form action="/register/register" method="post">
+        <h1>Register</h1>
+
+        <div class="input-container">
+          <input type="text" name="name" required />
+          <label>Name</label>
+        </div>
+
+        <div class="input-container">
+          <input type="text" name="email" required />
+          <label>Email</label>
+        </div>
+
+        <div class="input-container">
+          <input type="Password" name="password" required />
+          <label>Password</label>
+        </div>
+
+        <div th:if="${error}" class="input-error">
+          <p th:text="${error}"></p>
+        </div>
+
+        <button type="submit">Sign Up</button>
+
+        <div class="input-other">
+          <p>Already have an Account? <a href="/">Sign In</a></p>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

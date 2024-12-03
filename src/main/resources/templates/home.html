@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="enl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/master.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <nav th:insert="navbar :: navbar">
+    </nav>
+
+    <div class="jumbotron-container">
+      <div class="jumbotron">
+        <h1>Dive into Your Next Favorite Movie</h1>
+        <a class="btn" th:href="@{/movie}">Explore Now</a>
+      </div>
+    </div>
+
+    <div class="carausel-container">
+        <h1>Now Showing on Cinemas</h1>
+      <div class="carausel">
+        <button
+          class="btn carausel-btn"
+          id="btn-prev"
+          onclick="updateCarausel(-1)"
+        >
+          <
+        </button>
+
+        <div class="carausel-images" id="carausel-images" >
+
+          <a th:href="@{/movie/movieId={movieIdx}/dateIdx={dateIdx}(movieIdx=${movie.id}, dateIdx=0)}"
+             class="carausel-poster"
+             th:each="movie, stat : ${movies}"
+             th:id="d + ${stat.index + 1}">
+            <img class="poster" th:src="${movie.img}" />
+            <span th:text="${movie.title}"></span>
+          </a>
+
+        </div>
+
+        <button class="btn carausel-btn" id="btn-nxt" onclick="updateCarausel(1)">></button>
+      </div>
+    </div>
+
+    <script src="/js/carausel.js"></script>
+  </body>
+</html>

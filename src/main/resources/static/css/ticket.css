@@ -1,0 +1,92 @@
+.heading {
+  margin-top: 15vh;
+}
+
+.subheading {
+  font-size: 1.3em;
+  color: #a8a8a8;
+  margin-bottom: 1em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.ticket-container {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3em;
+}
+
+.ticket-container h2 {
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+
+.ticket {
+  width: 100%;
+  min-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.ticket-item {
+  display: flex;
+  padding: 1em;
+  width: 48%;
+  min-width: 500px;
+  margin-bottom: 1.2em;
+  background-color: #272b35;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+  gap: 2em;
+}
+
+.ticket-item img {
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+  width: 150px;
+  height: 150px;
+}
+
+.ticket-item-desc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-item-desc-title {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.ticket-item-desc-info {
+  color: #a8a8a8;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.ticket-item-desc-info i {
+  width: 20px;
+}
+
+.ticket-item-desc-seats {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 5px;
+}

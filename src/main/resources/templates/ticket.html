@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickets</title>
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/ticket.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav th:insert="navbar :: navbar">
+    </nav>
+
+    <h1 class="heading" th:text="${user.name}"></h1>
+    <h3 class="subheading" th:text="${user.email}"></h3>
+
+<!--    Active-->
+    <div class="ticket-container">
+      <h2>Active Tickets</h2>
+
+      <div class="ticket">
+
+        <div class="ticket-item" th:each="b : ${activeBookings}">
+          <img th:src="'https://quickchart.io/qr?text=' + ${b.qr} + '&size=150' "/>
+
+          <div class="ticket-item-desc">
+            <div class="ticket-item-desc-title" th:text="${b.screening.movie.title}">Movie Title</div>
+            <div class="ticket-item-desc-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <span th:text="${b.screening.cinema.name}">Location</span>
+            </div>
+            <div class="ticket-item-desc-info">
+              <i class="fa-solid fa-clock"></i>
+              <span th:text="${#temporals.format(b.screening.startTime, 'dd MMM yyyy HH:mm')}">Date | TIme</span>
+            </div>
+            <div class="ticket-item-desc-info">
+              <i class="fa-solid fa-ticket"></i>
+              <span>Seats</span>
+            </div>
+
+            <div class="ticket-item-desc-seats">
+              <div class="seat" th:each="t : ${activeTickets[b.id]}" th:text="${t.seat.number}">A1</div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+<!--    Inactive -->
+    <div class="ticket-container">
+      <h2>Inactive Tickets</h2>
+
+      <div class="ticket">
+
+        <div class="ticket-item" th:each="b : ${inactiveBookings}">
+          <img th:src="'https://quickchart.io/qr?text=' + ${b.qr} + '&size=150' "/>
+
+          <div class="ticket-item-desc">
+            <div class="ticket-item-desc-title" th:text="${b.screening.movie.title}">Movie Title</div>
+            <div class="ticket-item-desc-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <span th:text="${b.screening.cinema.name}">Location</span>
+            </div>
+            <div class="ticket-item-desc-info">
+              <i class="fa-solid fa-clock"></i>
+              <span th:text="${#temporals.format(b.screening.startTime, 'dd MMM yyyy HH:mm')}">Date | TIme</span>
+            </div>
+            <div class="ticket-item-desc-info">
+              <i class="fa-solid fa-ticket"></i>
+              <span>Seats</span>
+            </div>
+
+            <div class="ticket-item-desc-seats">
+              <div class="seat" th:each="t : ${inactiveTickets[b.id]}" th:text="${t.seat.number}">A1</div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>

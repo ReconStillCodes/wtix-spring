@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/movie.css" />
+  </head>
+  <body>
+    <nav th:insert="navbar :: navbar">
+    </nav>
+
+    <div class="jumbotron-container">
+      <div class="jumbotron">
+        <h1>Explore to Watch</h1>
+
+        <form action="/movie/search" method="get" class="search-form">
+          <div class="search-container">
+            <input type="text" name="search" placeholder="" />
+            <label> Search your Favorite Movie </label>
+          </div>
+
+          <button type="submit" class="btn search-btn">
+            <img
+              class="icon"
+              src="../asset/magnifying-glass.png"
+              alt="Search"
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="movie-container">
+
+      <a th:href="@{/movie/movieId={movieIdx}/dateIdx={dateIdx}(movieIdx=${movie.id}, dateIdx=0)}" class="movie-card" th:each="movie : ${movies}">
+        <img th:src="${movie.img}" />
+        <h4 th:text="${movie.title}"></h4>
+        <span th:text="${movie.genre}"></span>
+      </a>
+
+
+    </div>
+  </body>
+</html>

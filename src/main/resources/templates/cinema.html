@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema</title>
+    <link rel="stylesheet" href="../css/master.css" />
+    <link rel="stylesheet" href="../css/cinema.css" />
+  </head>
+  <body>
+    <nav th:insert="navbar :: navbar">
+    </nav>
+
+    <div class="jumbotron-container">
+      <div class="jumbotron">
+        <h1>Watch Anytime, Anywhere</h1>
+
+        <form action="/cinema/search" method="get" class="search-form" id="searchForm">
+          <div class="search-container">
+            <input type="text" name="search" placeholder="" />
+            <label> Search Available Cinema </label>
+          </div>
+
+          <button type="submit" class="btn search-btn">
+            <img
+              class="icon"
+              src="../asset/magnifying-glass.png"
+              alt="Search"
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="cinema-container">
+
+      <div href="#" class="cinema-card" th:each="cinema : ${cinemas}">
+        <img th:src="${cinema.img}" />
+        <div class="cinema-desc">
+          <h4 th:text="${cinema.name}"></h4>
+          <p th:text="${cinema.phone}"></p>
+          <p class="cinema-address" th:text="${cinema.location}">
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
